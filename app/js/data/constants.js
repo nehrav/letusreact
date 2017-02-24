@@ -2,48 +2,67 @@
 
 const dataConstants = {
   menu: {
-  	btn: {
+  	button: {
 	    name: 'Button'
 	    , type: 'button'
 	  }
-	  , chk: {
+	  , checkbox: {
 	    name: 'Checkbox'
 	    , type: 'checkbox'
 	  }
-	  , chkg: {
+	  , checkboxgroup: {
 	    name: 'Checkbox Group'
-	    , type: 'checkboxgrp'
+	    , type: 'checkboxgroup'
 	  }
-	  , pgh: {
+	  , pageheader: {
 	    name: 'Page Header'
-	    , type: 'pghdr'
+	    , type: 'pageheader'
 	  }
-	  , rdg: {
+	  , radiogroup: {
 	    name: 'Radio Group'
-	    , type: 'radio'
+	    , type: 'radiogroup'
 	  }
-	  , sel: {
+	  , selectbox: {
 	    name: 'Select Box (Dropdown)'
-	    , type: 'select'
+	    , type: 'selectbox'
 	  }
-	  , inpt: {
+	  , inputtext: {
 	    name: 'Input (Text Field)'
-	    , type: 'input'
+	    , type: 'inputtext'
 	  }
-	  , txt: {
+	  , textarea: {
 	    name: 'Text Area'
 	    , type: 'textarea'
 	  }
   }
+  , keyMap: {
+  	lbl: {
+  		name: 'Label :'
+  	}
+  	, nam: {
+  		name: 'Name :'
+  	}
+  	, val: {
+  		name: 'Value :'
+  	}
+  	, req: {
+  		name: 'Required'
+  		, type: 'chkbox'
+  	}
+  	, dsbl: {
+  		name: 'Disabled'
+  		, type: 'chkbox'
+  	}
+  }
   , formType: {
-  	btn: ['lbl', 'nam', 'val']
-  	, chk: ['lbl', 'nam', 'val']
-  	, chkg: ['lbl', 'nam', 'val']
-  	, pgh: ['lbl', 'nam', 'val']
-  	, rdg: ['lbl', 'nam', 'val']
-  	, sel: ['lbl', 'nam', 'val']
-  	, inpt: ['lbl', 'nam', 'val']
-  	, txt: ['lbl', 'nam', 'val']
+  	button: ['lbl', 'nam', 'dsbl']
+  	, checkbox: ['lbl', 'nam', 'val', 'req']
+  	, checkboxgroup: ['lbl', 'nam', 'val']
+  	, pageheader: ['lbl', 'nam', 'val']
+  	, radiogroup: ['lbl', 'nam', 'val']
+  	, selectbox: ['lbl', 'nam', 'val']
+  	, inputtext: ['lbl', 'nam', 'val']
+  	, textarea: ['lbl', 'nam', 'val']
   }
 };
 

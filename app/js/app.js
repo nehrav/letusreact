@@ -10,7 +10,7 @@ export default class App extends React.Component {
 	constructor() {
     super();
     this.state = {
-      canvasItems:['btn', 'inpt', 'chk'],
+      canvasItems:['button', 'checkbox', 'checkboxgroup', 'pageheader', 'radiogroup', 'selectbox', 'inputtext', 'textarea'],
     };
   }
 
