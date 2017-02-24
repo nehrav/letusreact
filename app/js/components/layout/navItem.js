@@ -8,7 +8,7 @@ export default class navitem extends React.Component {
   render() {
   	const { navobj } = this.props;  
     return ( 
-      <li onClick={this.handleMouseClick.bind(this, this.props.navkey)}><i></i> {navobj.name}</li> 
+      <li onClick={this.handleMouseClick.bind(this, this.props.navkey)}><i className="icon icon-"></i> {navobj.name}</li> 
     );
   }
 }

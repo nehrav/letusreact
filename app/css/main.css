@@ -2,6 +2,11 @@
 	background:url(assets/sprite.png) top left no-repeat;
 	display:inline-block;
 	}
+i.icon {
+	display:inline-block;
+	width:16px;
+	height:16px;
+	}	
 li {
 	list-style-type:none;
 	}
@@ -34,16 +39,59 @@ header #logo {
 .wrapper .canvasarea {
 	min-height:300px;
 	float:left;
-	width:80%;
+	width:78%;
 	background:#ececec;
 	border:solid 1px #ccc;
 	}	
+.wrapper .canvasarea .block {
+	border:solid 1px #ececec;
+	background:#fff;
+	padding:15px 10px;
+	margin:15px;
+	border-radius:5px;
+	position:relative;
+	}
+.wrapper .canvasarea .block i.cross {
+	position:absolute;
+	background:red;
+	top:-8px;
+	right:-8px;
+	cursor:pointer;
+	}	
+.wrapper .canvasarea .block .form-group {
+	margin-bottom:15px;
+	overflow:hidden;
+	}	
+.wrapper .canvasarea .block .form-group label {
+	text-align:right;
+	width:20%;
+	float:left;
+	font-weight:600;
+	margin-top:5px;
+	}	
+.wrapper .canvasarea .block .form-group .input-wrap {
+	float:right;
+	width:77%;
+	}			
+.wrapper .canvasarea .block .form-group .input-wrap input {
+	padding:6px 12px;
+	border:1px solid #e7e7e7;
+	border-radius:4px;
+	width:95%;
+	background-color:#fff;
+	color:#333;
+	}
+.wrapper .canvasarea .block .form-group .input-wrap input:hover
+, .wrapper .canvasarea .block .form-group .input-wrap input:focus {
+	background:#d9edfe;
+	}	
 .wrapper .navItems {
 	float:right;
-	width:17%;
+	width:19%;
 	box-shadow:1px 1px 3px 0px #ccc;
 	margin-right:6px;
 	border-radius:5px;
+	overflow:hidden;
 	}
 .wrapper .navItems li {
 	background:#fff;
@@ -53,6 +101,11 @@ header #logo {
 	cursor:pointer;
 	color:#666;
 	}
+.wrapper .navItems li i {
+	background:#ddd;
+	margin:0 8px -3px 0;
+	}	
 .wrapper .navItems li:hover {
 	background:#ededed;
+	color:#81c0f5;
 	}

@@ -30,10 +30,20 @@ const dataConstants = {
 	    name: 'Input (Text Field)'
 	    , type: 'input'
 	  }
-	  , txtA: {
+	  , txt: {
 	    name: 'Text Area'
 	    , type: 'textarea'
 	  }
+  }
+  , formType: {
+  	btn: ['lbl', 'nam', 'val']
+  	, chk: ['lbl', 'nam', 'val']
+  	, chkg: ['lbl', 'nam', 'val']
+  	, pgh: ['lbl', 'nam', 'val']
+  	, rdg: ['lbl', 'nam', 'val']
+  	, sel: ['lbl', 'nam', 'val']
+  	, inpt: ['lbl', 'nam', 'val']
+  	, txt: ['lbl', 'nam', 'val']
   }
 };
 
