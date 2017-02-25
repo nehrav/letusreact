@@ -10,16 +10,12 @@ export default class App extends React.Component {
 	constructor() {
     super();
     this.state = {
-      canvasItems:['dropdown'],
-      // canvasItems:[]
+      canvasItems:[]
     };
-  }
+  } 
 
-  updateCanvasItems(item) {
-  	const updatedItems = this.state.canvasItems;
-  	updatedItems.push(item);
-  	console.log(item, updatedItems, this.state.canvasItems);
-    this.setState({canvasItems:updatedItems});
+  updateCanvasItems(arry) {
+    this.setState({canvasItems:arry});
   }
 
   render() {   
@@ -30,8 +26,8 @@ export default class App extends React.Component {
         	<p>
         		Click on any of the <strong>"form items"</strong> from right to create your form.
         	</p>
-        	<CanvasArea canvasFormFields={this.state.canvasItems} formType={DataConstants.formType} /> 
-        	<Nav menu={DataConstants.menu} />
+        	<CanvasArea updateCanvasItems={this.updateCanvasItems.bind(this)} canvasFormFields={this.state.canvasItems} formType={DataConstants.formType} /> 
+        	<Nav updateCanvasItems={this.updateCanvasItems.bind(this)} canvasFormFields={this.state.canvasItems} menu={DataConstants.menu} />
         </div> 
       </div> 
     );

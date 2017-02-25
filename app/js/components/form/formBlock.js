@@ -18,12 +18,13 @@ export default class FormBlock extends React.Component {
   } 
 
   updateOptions() {
-    
+    // for options fields handling
   }
 
   render() { 
-    let labelVal = this.props.keyData.name;
+    console.log('FormBlock props = ', this.props);
     const { keyValue } = this.state; 
+    let labelVal = this.props.keyData.name; 
     let inputWrap = (<input type="text" value={keyValue} onChange={this.handleChange.bind(this)} />); 
 
     if(this.props.keyName != 'required' || this.props.keyName != 'disabled') {
@@ -45,7 +46,6 @@ export default class FormBlock extends React.Component {
       inputWrap = ( <div className="radio-group" onChange={this.handleChange.bind(this)}> {radioBlock} </div>);
     }  
 
-  	console.log('XXXXXXXXXXXXX FormBlock = ', this.props);
     return ( 
       <div className="form-group">
         <label>{labelVal}</label>

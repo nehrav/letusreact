@@ -42,7 +42,7 @@ const dataConstants = {
     , pageTitle: {
       name: 'Page Title :'
     }
-  	, nam: {
+  	, name: {
   		name: 'Name :'
   	}
   	, value: {
@@ -103,14 +103,14 @@ const dataConstants = {
     }
   }
   , formType: {
-  	button: ['label', 'nam', 'type', 'view', 'disabled']
-  	, checkbox: ['label', 'nam', 'value', 'required', 'disabled']
-  	, checkboxgroup: ['label', 'nam', 'value']
+  	button: ['label', 'name', 'type', 'view', 'disabled']
+  	, checkbox: ['label', 'name', 'value', 'required', 'disabled']
+  	, checkboxgroup: ['label', 'name', 'value']
   	, pageheader: ['pageTitle']
-  	, radiogroup: ['label', 'nam', 'value', 'required']
-  	, dropdown: ['label', 'nam', 'value', 'options', 'listType', 'view', 'required', 'disabled']
-  	, inputtext: ['label', 'nam', 'value', 'allowType', 'maxlength', 'required', 'disabled']
-  	, textarea: ['label', 'nam', 'value', 'required']
+  	, radiogroup: ['label', 'name', 'value', 'required']
+  	, dropdown: ['label', 'name', 'value', 'options', 'listType', 'view', 'required', 'disabled']
+  	, inputtext: ['label', 'name', 'value', 'allowType', 'maxlength', 'required', 'disabled']
+  	, textarea: ['label', 'name', 'value', 'required']
   }
 };
 

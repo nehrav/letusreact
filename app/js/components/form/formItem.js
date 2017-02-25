@@ -20,9 +20,9 @@ export default class FormItem extends React.Component {
     };
   }
 
-	removeCanvasFormField(e, fieldType) {
-    console.log(e, fieldType);
-  }
+	removeCanvasFormField(key, fieldType) { 
+    this.props.changeArray(key);
+  } 
 
   collectFormBlockValue(val, keyToUpdate) {
   	let newFormBlockState = this.state.formFieldObj;
@@ -39,14 +39,14 @@ export default class FormItem extends React.Component {
   	}
   	this.setState({formFieldObj:newFormBlockState});
 
-  	console.log('collectFormBlockValue = ',  val, keyToUpdate, this.state);
+  	// console.log('collectFormBlockValue = ',  val, keyToUpdate, this.state);
   }
 
   render() {
   	const { formobjkey } = this.props;
   	const { objkey } = this.props;
   	const blockHead = DataConstants['menu'][objkey]['name']; 
-  	console.log('FormItem = ', formobjkey, this.props, ); 
+  	console.log('FormItem props = ', this.props); 
 
   	const formRowBlock = formobjkey.map((fieldArrKey, i) => <FormBlock collectFormRowValue={this.collectFormBlockValue.bind(this)} key={i} keyName={fieldArrKey} keyData={DataConstants.keyMap[fieldArrKey]} /> ); 
   	
