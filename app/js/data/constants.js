@@ -22,9 +22,9 @@ const dataConstants = {
 	    name: 'Radio Group'
 	    , type: 'radiogroup'
 	  }
-	  , selectbox: {
+	  , dropdown: {
 	    name: 'Select Box (Dropdown)'
-	    , type: 'selectbox'
+	    , type: 'dropdown'
 	  }
 	  , inputtext: {
 	    name: 'Input (Text Field)'
@@ -36,33 +36,81 @@ const dataConstants = {
 	  }
   }
   , keyMap: {
-  	lbl: {
+  	label: {
   		name: 'Label :'
   	}
+    , pageTitle: {
+      name: 'Page Title :'
+    }
   	, nam: {
   		name: 'Name :'
   	}
-  	, val: {
+  	, value: {
   		name: 'Value :'
   	}
-  	, req: {
+  	, required: {
   		name: 'Required'
-  		, type: 'chkbox'
+  		, type: 'checkbox'
   	}
-  	, dsbl: {
+  	, disabled: {
   		name: 'Disabled'
-  		, type: 'chkbox'
+  		, type: 'checkbox'
   	}
+    , options: {
+      name: 'Options :'
+      , type: 'formlist'
+      , options: {
+        option1:'Option 1'
+        , option2:'Option 2'
+        , option3:'Option 3'
+      }
+    }
+  	, type: {
+  		name: 'Type :'
+  		, type: 'dropdown'
+  		, options: {
+  			add:'Add'
+  			, delete:'Delete'
+  			, submit:'Submit'
+  		}
+  	}
+  	, maxlength: {
+  		name: 'Maxlength :'
+  	}
+  	, view: {
+  		name: 'View Type :'
+  		, type: 'radio'
+  		, options: {
+  			inline: 'Inline'
+  			, grid: 'Grid'
+  		}
+  	}
+    , listType: {
+      name: 'Dropdown Type :'
+      , type: 'radio'
+      , options: {
+        single: 'Single Select'
+        , multi: 'Multi Select'
+      }
+    }
+    , allowType: {
+      name: 'Allow Type :'
+      , type: 'radio'
+      , options: {
+        decimal: 'Decimal'
+        , number: 'Number'
+      }
+    }
   }
   , formType: {
-  	button: ['lbl', 'nam', 'dsbl']
-  	, checkbox: ['lbl', 'nam', 'val', 'req']
-  	, checkboxgroup: ['lbl', 'nam', 'val']
-  	, pageheader: ['lbl', 'nam', 'val']
-  	, radiogroup: ['lbl', 'nam', 'val']
-  	, selectbox: ['lbl', 'nam', 'val']
-  	, inputtext: ['lbl', 'nam', 'val']
-  	, textarea: ['lbl', 'nam', 'val']
+  	button: ['label', 'nam', 'type', 'view', 'disabled']
+  	, checkbox: ['label', 'nam', 'value', 'required', 'disabled']
+  	, checkboxgroup: ['label', 'nam', 'value']
+  	, pageheader: ['pageTitle']
+  	, radiogroup: ['label', 'nam', 'value', 'required']
+  	, dropdown: ['label', 'nam', 'value', 'options', 'listType', 'view', 'required', 'disabled']
+  	, inputtext: ['label', 'nam', 'value', 'allowType', 'maxlength', 'required', 'disabled']
+  	, textarea: ['label', 'nam', 'value', 'required']
   }
 };
 

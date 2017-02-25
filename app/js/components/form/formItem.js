@@ -16,7 +16,7 @@ export default class FormItem extends React.Component {
     }
 
     this.state = {
-      formFieldObj: defaultObj
+      formFieldObj: defaultObj 
     };
   }
 
@@ -25,29 +25,35 @@ export default class FormItem extends React.Component {
   }
 
   collectFormBlockValue(val, keyToUpdate) {
-  	const newFormBlockState = this.state.formFieldObj;
+  	let newFormBlockState = this.state.formFieldObj;
   	// console.log('xxxxxxxxx = ', newFormBlockState);
-  	if(keyToUpdate == 'lbl')
-  		newFormBlockState['config']['label'] = val;
-  	else if(keyToUpdate == 'dsbl')
-  		newFormBlockState['config']['constraints']['disabled'] = val;
-  	else if(keyToUpdate == 'req')
-  		newFormBlockState['config']['constraints']['required'] = val;
+  	if(keyToUpdate == 'label' || keyToUpdate == 'allowType' || keyToUpdate == 'listType')
+  		newFormBlockState['config'][keyToUpdate] = val;
+  	else if(keyToUpdate == 'disabled' || keyToUpdate == 'required' || keyToUpdate == 'maxlength')
+  		newFormBlockState['config']['constraints'][keyToUpdate] = val;
+  	else if(keyToUpdate == 'type' || keyToUpdate == 'view' || keyToUpdate == 'value')
+  		newFormBlockState[keyToUpdate] = val;
+  	else {
+  		newFormBlockState = {};
+  		newFormBlockState[keyToUpdate] = val;
+  	}
   	this.setState({formFieldObj:newFormBlockState});
-  	console.log('collectFormBlockValue = ',  val, keyToUpdate, this.state.formFieldObj);
+
+  	console.log('collectFormBlockValue = ',  val, keyToUpdate, this.state);
   }
 
   render() {
   	const { formobjkey } = this.props;
   	const { objkey } = this.props;
-  	let keyValue = objkey + '-' + new Date().getTime();
-  	console.log('FormItem = ', formobjkey, this.props, DataConstants.keyMap); 
+  	const blockHead = DataConstants['menu'][objkey]['name']; 
+  	console.log('FormItem = ', formobjkey, this.props, ); 
 
-  	const formRowBlock = formobjkey.map((fieldArrKey, i) => <FormBlock collectFormRowValue={this.collectFormBlockValue.bind(this)} key={i} keyName={fieldArrKey} keyData={DataConstants.keyMap[fieldArrKey]} keyValue={(fieldArrKey == 'nam') ? keyValue : ''} /> ); 
+  	const formRowBlock = formobjkey.map((fieldArrKey, i) => <FormBlock collectFormRowValue={this.collectFormBlockValue.bind(this)} key={i} keyName={fieldArrKey} keyData={DataConstants.keyMap[fieldArrKey]} /> ); 
   	
     return ( 
       <div className="block">
-      	<i className="icon cross" onClick={this.removeCanvasFormField.bind(this, objkey)}></i>
+      	<h3>{blockHead}</h3>
+      	<i className="icon cross" onClick={this.removeCanvasFormField.bind(this, objkey)}>x</i>
         {formRowBlock}
       </div> 
     );

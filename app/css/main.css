@@ -10,7 +10,7 @@ i.icon {
 li {
 	list-style-type:none;
 	}
-ul, li, body, header {
+ul, li, body, header, h1, h3, h5 {
 	margin:0;
 	padding:0;
 	}
@@ -57,6 +57,21 @@ header #logo {
 	top:-8px;
 	right:-8px;
 	cursor:pointer;
+	width:18px;
+	height:18px;
+	color:#fff;
+	border-radius:50%;
+	font-style:normal;
+	text-align:center;
+	font-weight:bold;
+	}	
+.wrapper .canvasarea .block h3 {
+	color:#555;
+	font-weight:500;
+	font-style:italic;
+	border-bottom:solid 1px #ddd;
+	margin-bottom:20px;
+	padding-bottom:7px;
 	}	
 .wrapper .canvasarea .block .form-group {
 	margin-bottom:15px;
@@ -73,7 +88,17 @@ header #logo {
 	float:right;
 	width:77%;
 	}			
-.wrapper .canvasarea .block .form-group .input-wrap input[type="text"] {
+.wrapper .canvasarea .block .form-group .input-wrap select {
+	width:99.5%;
+	}
+.wrapper .canvasarea .block .form-group .input-wrap .radio-group div {
+	float:left; width:30%;
+	}	
+.wrapper .canvasarea .block .form-group .input-wrap .radio-group div input[type="text"] {
+	width:60%;
+	}
+.wrapper .canvasarea .block .form-group .input-wrap input[type="text"]
+, .wrapper .canvasarea .block .form-group .input-wrap select {
 	padding:6px 12px;
 	border:1px solid #e7e7e7;
 	border-radius:4px;
