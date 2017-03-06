@@ -20,9 +20,18 @@ export default class FormItem extends React.Component {
     };
   }
 
+  updateState(key, val) {
+    this.setState({key:val});
+  }
+
 	removeCanvasFormField(key, fieldType) { 
     this.props.changeArray(key);
   } 
+
+  updateFormJSON (keyToUpdate) {
+    console.log('updateFormJSON called = ', keyToUpdate, this.state.formFieldObj, this.props);
+    this.props.updateFORMJSON(keyToUpdate, this.state.formFieldObj);
+  }
 
   collectFormBlockValue(val, keyToUpdate) {
   	let newFormBlockState = this.state.formFieldObj;
@@ -34,19 +43,24 @@ export default class FormItem extends React.Component {
   	else if(keyToUpdate == 'type' || keyToUpdate == 'view' || keyToUpdate == 'value')
   		newFormBlockState[keyToUpdate] = val;
   	else {
-  		newFormBlockState = {};
+  		// newFormBlockState = {};
   		newFormBlockState[keyToUpdate] = val;
   	}
-  	this.setState({formFieldObj:newFormBlockState});
+    this.updateState('formFieldObj', newFormBlockState);
 
-  	// console.log('collectFormBlockValue = ',  val, keyToUpdate, this.state);
-  }
+    this.updateFormJSON(keyToUpdate);
+
+  	console.log('collectFormBlockValue = ',  keyToUpdate, val, this.state.formFieldObj);
+  } 
 
   render() {
   	const { formobjkey } = this.props;
   	const { objkey } = this.props;
   	const blockHead = DataConstants['menu'][objkey]['name']; 
-  	console.log('FormItem props = ', this.props); 
+    this.state.formFieldObj.type = objkey;
+    if(this.state.formFieldObj.type == 'dropdown')
+      this.state.formFieldObj['list'] = [];
+  	console.log('FormItem props = ', this.props, this.state); 
 
   	const formRowBlock = formobjkey.map((fieldArrKey, i) => <FormBlock collectFormRowValue={this.collectFormBlockValue.bind(this)} key={i} keyName={fieldArrKey} keyData={DataConstants.keyMap[fieldArrKey]} /> ); 
   	

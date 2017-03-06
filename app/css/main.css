@@ -43,6 +43,22 @@ header #logo {
 	background:#ececec;
 	border:solid 1px #ccc;
 	}	
+.wrapper .buttonWrapper {
+	padding:15px;
+	display:none;
+	}	
+.wrapper .buttonWrapper.showme {	
+	display:block;
+	}
+.wrapper .buttonWrapper button {
+	background:#3498db; 	
+	padding:10px 20px;
+	cursor:pointer;
+	color:#fff;
+	font-weight:bold;
+	border:none;
+	border-bottom:solid 3px #2a81ba;
+	}
 .wrapper .canvasarea .block {
 	border:solid 1px #ececec;
 	background:#fff;

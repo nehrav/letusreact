@@ -46,7 +46,7 @@ const dataConstants = {
   		name: 'Name :'
   	}
   	, value: {
-  		name: 'Value :'
+  		name: 'Default Value :'
   	}
   	, required: {
   		name: 'Required'
@@ -82,7 +82,7 @@ const dataConstants = {
   		, type: 'radio'
   		, options: {
   			inline: 'Inline'
-  			, grid: 'Grid'
+  			, full: 'Full'
   		}
   	}
     , listType: {
