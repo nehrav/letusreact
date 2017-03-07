@@ -6,6 +6,7 @@ export default class FormBlock extends React.Component {
 
     this.state = { 
       keyValue: 'default-' + new Date().getTime()
+
     };
   }
 
@@ -16,6 +17,7 @@ export default class FormBlock extends React.Component {
     this.setState({keyValue:fieldValue});
     // console.log('formblock handleInputFieldChanges', fieldValue, this.props);
   }  
+
 
   componentWillMount() {
     // if(this.props.keyName == 'name') {
@@ -31,6 +33,18 @@ export default class FormBlock extends React.Component {
 
     this.setState({keyValue:fieldValue});
     this.props.collectFormRowValue(fieldValue, this.props.keyName); 
+  }  
+
+  updateOptions(e) {
+     let optionCount = Object.keys(this.props.keyData.options).length;
+     let newOptionNum = optionCount+1;
+     let newOptionName = 'Option' + newOptionNum;
+     this.props.keyData.options[newOptionName] = 'Option' + ' ' + newOptionNum;
+     this.setState(this.state);   
+  }
+
+  updateText(e){
+
   }
 
   render() { 
@@ -72,12 +86,8 @@ export default class FormBlock extends React.Component {
         </select> 
       ); 
     } else if (this.props.keyData.type == 'formlist') { 
-      const formBlock = Object.keys(this.props.keyData.options).map((key, i) => <div key={i}><input type="radio" value={key} /> <input type="text" value={this.props.keyData.options[key]} /></div> ); 
-      inputWrap = ( 
-        <div className="radio-group" onChange={this.handleInputFieldChanges.bind(this)}> 
-          {formBlock} 
-        </div> 
-      );
+      const formBlock = Object.keys(this.props.keyData.options).map((key, i) => <div key={i}><input type="radio" value={key} /> <input type="text" onChange={this.updateText.bind(this)} value={this.props.keyData.options[key]} /></div> ); 
+      inputWrap = ( <div><div className="radio-group" onChange={this.handleInputFieldChanges.bind(this)}> {formBlock} </div> <button onClick={this.updateOptions.bind(this)}>Add options </button> </div> );
     } else if (this.props.keyData.type == 'radio') { 
       const radioBlock = Object.keys(this.props.keyData.options).map((key, i) => <div key={i}><input checked={this.state.keyValue === key} onChange={this.handleInputFieldChanges.bind(this)} type="radio" value={key} /> {this.props.keyData.options[key]}</div> ); 
       inputWrap = ( 

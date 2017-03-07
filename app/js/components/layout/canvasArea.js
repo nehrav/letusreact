@@ -2,6 +2,7 @@ import React from 'react';
 import FormItem from './../form/formItem'; 
 
 export default class CanvasArea extends React.Component {
+
   constructor() {
     super(); 
 
@@ -15,10 +16,21 @@ export default class CanvasArea extends React.Component {
     };
   }
 
-	changeArray(keyToRemove) { 
+  
+  changeArray(keyToRemove) { 
     const { canvasFormFields } = this.props; 
     canvasFormFields.splice(canvasFormFields.indexOf(keyToRemove), 1);
     this.props.updateCanvasItems(canvasFormFields);
+  }
+ 
+  createJSON(key,val){
+    let newJSON = this.state.formJson;
+    newJSON['formItems'][key] = val;
+    this.setState({formJson:newJSON});
+  }
+
+  saveForm(){
+              
   }
 
   createMyForm() {
@@ -54,6 +66,9 @@ export default class CanvasArea extends React.Component {
 		const { formType } = this.props; 
 		const formItemArry = canvasFormFields.map((objkey, i) => <FormItem key={i} objkey={objkey} formobjkey={formType[objkey]} changeArray={this.changeArray.bind(this)} updateFORMJSON={this.updateFORMJSON.bind(this)} /> );
 
+
+
+
     return (
       <div className="canvasarea">  
         <div><pre>{JSON.stringify(this.state.formObj, null, 2) }</pre> </div>
@@ -61,6 +76,7 @@ export default class CanvasArea extends React.Component {
         <div className={"buttonWrapper "  + (this.props.canvasFormFields.length ? 'showme' : '')}>
           <button onClick={this.createMyForm.bind(this)}>Create My Form</button>
         </div>
+
 			</div>
     );
   }

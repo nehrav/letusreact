@@ -92,7 +92,10 @@ header #logo {
 .wrapper .canvasarea .block .form-group {
 	margin-bottom:15px;
 	overflow:hidden;
-	}	
+	}
+.wrapper .canvasarea .submitButton {
+	margin:0px 375px 15px;
+	}			
 .wrapper .canvasarea .block .form-group label {
 	text-align:right;
 	width:20%;
@@ -149,7 +152,7 @@ header #logo {
 	background:#ddd;
 	margin:0 8px -3px 0;
 	}	
-.wrapper .navItems li:hover {
+.wrapper .navItems li ul:hover {
 	background:#ededed;
 	color:#81c0f5;
 	}
