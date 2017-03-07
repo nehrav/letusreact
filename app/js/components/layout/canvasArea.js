@@ -31,8 +31,18 @@ export default class CanvasArea extends React.Component {
   }
  
 
-  createMyForm() {
+  createMyForm(e) {
+    $.post("http://localhost/letusreact/api/form_creator.php", {
+        name: 'Form',
+        formjson: this.state.formObj
+      },
+      function(res){
+        if(res == 'true')
+          alert('Form Data has been saved to DB!!');
+      }.bind(this)
+    );
     console.log(this.state.formObj);
+    e.preventDefault();
   }
 
   updateFORMJSON(key, data) {
