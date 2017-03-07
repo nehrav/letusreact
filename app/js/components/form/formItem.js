@@ -12,11 +12,11 @@ export default class FormItem extends React.Component {
     	, config: {
     		label: ''
     		, constraints: {}
-    	}
+    	} 
     }
 
     this.state = {
-      formFieldObj: defaultObj 
+      formFieldObj: defaultObj
     };
   }
 
@@ -26,15 +26,21 @@ export default class FormItem extends React.Component {
 
 	removeCanvasFormField(key, fieldType) { 
     this.props.changeArray(key);
+    this.props.removeKeyFromJSON(this.state.formFieldObj.refKey);
   } 
 
-  updatePropFormJSON () {
-    console.log('updatePropFormJSON called of form ITEM = ', this.state.formFieldObj);
-    this.props.updateFORMJSON(this.props.objkey, this.state.formFieldObj);
+  updatePropFormJSON (createNewKey) {
+    console.log('formItem | updatePropFormJSON = ', this.state.formFieldObj);
+    this.props.updateFORMJSON(this.props.objkey, this.state.formFieldObj,createNewKey);
   }
 
   collectFormBlockValue(val, keyToUpdate) {
-  	let newFormBlockState = this.state.formFieldObj;
+    let newFormBlockState = this.state.formFieldObj;
+
+    if(keyToUpdate == 'name' && !newFormBlockState['refKey']) 
+      newFormBlockState['refKey'] = val;
+    console.log('keyToUpdate = ', val, keyToUpdate, this.state.formFieldObj);
+  	
   	// console.log('xxxxxxxxx = ', newFormBlockState);
   	if(keyToUpdate == 'label' || keyToUpdate == 'allowType' || keyToUpdate == 'listType' || keyToUpdate == 'callBack' || keyToUpdate == 'action' || keyToUpdate == 'errorCallBack')
   		newFormBlockState['config'][keyToUpdate] = val;
@@ -53,6 +59,13 @@ export default class FormItem extends React.Component {
   } 
 
   componentWillMount() {
+    // console.log('component Mount', this.props, this.state.formFieldObj);
+
+    // console.log('formItem componentMount = ', this.state);
+    // this.updateState('refKey', 'test');
+    // console.log('formItem componentMount 2= ', this.state);
+    // console.log('ravi = ', this.state, this.state.refKey);
+    // this.updateState('formFieldObj', {'name':'test'}); 
     this.updatePropFormJSON();
   }
 

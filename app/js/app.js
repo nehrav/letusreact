@@ -9,15 +9,9 @@ import Nav from "./components/layout/nav";
 export default class App extends React.Component {
 	constructor() {
     super();
-    const defaultObj = {
-      "pageTitle" : "Payment Plan",
-      "dataKey" : "formObj",
-      "formItems" :{} 
-    };
 
     this.state = {
-      canvasItems:[],
-      formJson:defaultObj
+      canvasItems:[]
     };
   } 
 
@@ -25,17 +19,7 @@ export default class App extends React.Component {
     this.setState({canvasItems:arry});
   }
 
-  createJSON(key,val){
-    let newJSON = this.state.formJson;
-    newJSON['formItems'][key] = val;
-    this.setState({formJson:newJSON});
-  }
-
   render() {   
-    console.log(2, this.props.children);
-    React.Children.forEach(this.props.children, function(child){
-       console.log('Surbhi',child);
-     });
 
     return (
       <div> 
@@ -44,7 +28,7 @@ export default class App extends React.Component {
         	<p>
         		Click on any of the <strong>"form items"</strong> from right to create your form.
         	</p>
-        	<CanvasArea updateCanvasItems={this.updateCanvasItems.bind(this)} canvasFormFields={this.state.canvasItems} formType={DataConstants.formType} formJson={this.state.formJson} > <div>11</div> </CanvasArea>
+        	<CanvasArea updateCanvasItems={this.updateCanvasItems.bind(this)} canvasFormFields={this.state.canvasItems} formType={DataConstants.formType} />
         	<Nav updateCanvasItems={this.updateCanvasItems.bind(this)} canvasFormFields={this.state.canvasItems} menu={DataConstants.menu} />
         </div> 
       </div> 

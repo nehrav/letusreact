@@ -17,7 +17,7 @@ export default class Nav extends React.Component {
       menuKeys.splice(menuKeys.indexOf('loadrequest'), 1);
   	const navListArry = menuKeys.map((objkey) => <NavItem key={objkey} navkey={objkey} navobj={menu[objkey]} addCanvasItemsArray={this.addCanvasItemsArray.bind(this)} /> );
 
-    console.log('navListArry = ', navListArry, Object.keys(menu));
+    // console.log('navListArry = ', navListArry, Object.keys(menu));
     return (
       <ul className="navItems"> 
       	{navListArry}
