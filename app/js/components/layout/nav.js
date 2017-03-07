@@ -13,6 +13,8 @@ export default class Nav extends React.Component {
     const menuKeys = Object.keys(menu); 
     if(this.props.canvasFormFields.indexOf('pageheader') != -1)
       menuKeys.splice(menuKeys.indexOf('pageheader'), 1);
+    if(this.props.canvasFormFields.indexOf('loadrequest') != -1)
+      menuKeys.splice(menuKeys.indexOf('loadrequest'), 1);
   	const navListArry = menuKeys.map((objkey) => <NavItem key={objkey} navkey={objkey} navobj={menu[objkey]} addCanvasItemsArray={this.addCanvasItemsArray.bind(this)} /> );
 
     console.log('navListArry = ', navListArry, Object.keys(menu));

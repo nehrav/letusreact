@@ -113,6 +113,9 @@ header #logo {
 .wrapper .canvasarea .block .form-group .input-wrap .radio-group div input[type="text"] {
 	width:60%;
 	}
+.wrapper .canvasarea .block .form-group .input-wrap select {
+	width:100%;
+	}
 .wrapper .canvasarea .block .form-group .input-wrap input[type="text"]
 , .wrapper .canvasarea .block .form-group .input-wrap select {
 	padding:6px 12px;
