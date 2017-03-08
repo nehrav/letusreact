@@ -20,10 +20,10 @@ class Form{
             $result = mysqli_query($this->conn, $query);
 
             if (!$result) {
-               return false;
+               return ['response'=>false];
             }
             else 
-                return true;
+                return ['response'=>true,'insertID'=> $this->conn->insert_id];
  
         }
 
@@ -31,4 +31,5 @@ class Form{
             die('ERROR: ' . $exception->getMessage());
         }
     }
+
 }

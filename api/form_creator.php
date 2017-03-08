@@ -14,6 +14,6 @@ if($_POST){
  
     $formParams = ['name'=>$_POST['name'], 'formjson'=>$_POST['formjson']];
    
-    echo $form->create($formParams) ? "true" : "false";
+    echo json_encode($form->create($formParams));
 }
 ?>
