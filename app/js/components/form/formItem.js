@@ -34,7 +34,7 @@ export default class FormItem extends React.Component {
   collectFormBlockValue(val, keyToUpdate) {
   	let newFormBlockState = this.state.formFieldObj;
   	console.log('formItem | collectFormBlockValue | keyToUpdate | ', keyToUpdate, val);
-
+    
     if(keyToUpdate == 'name' && !newFormBlockState['refKey']) 
       newFormBlockState['refKey'] = val;
 

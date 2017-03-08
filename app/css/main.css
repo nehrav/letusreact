@@ -81,6 +81,9 @@ header #logo {
 	text-align:center;
 	font-weight:bold;
 	}	
+.wrapper .hideMe {
+	display:none;
+	}	
 .wrapper .canvasarea .block h3 {
 	color:#555;
 	font-weight:500;
