@@ -2,10 +2,15 @@
 class Database{
  
     // specify your own database credentials
-    private $host = "172.16.2.221";
-    private $db_name = "letusreact";
+    // private $host = "172.16.2.221";
+    // private $username = "root";
+    // private $password = "Km7Iv80l";
+    
+    private $host = "172.16.2.137";
     private $username = "99user";
     private $password = "ViHycs4";
+
+
     public $conn;
  
     // get the database connection
