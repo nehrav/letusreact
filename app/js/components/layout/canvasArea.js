@@ -24,11 +24,22 @@ export default class CanvasArea extends React.Component {
   removeKeyFromJSON(keyToRemove){
     const formJSON  = this.state.formObj;
     delete formJSON.formItems[keyToRemove];
-    this.setState({'formObj':formJSON});
-  } 
-  createMyForm() {
+    this.setState({'formObj':formJSON}); 
+  }    
+  createMyForm(e) {
+    $.post("http://localhost/letusreact/api/form_creator.php", {
+        name: 'Form',
+        formjson: this.state.formObj
+      },
+      function(res){
+        if(res == 'true')
+          alert('Form Data has been saved to DB!!');
+      }.bind(this)
+    );
     console.log(this.state.formObj);
-  } 
+    e.preventDefault();
+  }
+  
   updateFORMJSON(key, data) {
     const { formObj } = this.state;
     if(key == 'pageheader') {
