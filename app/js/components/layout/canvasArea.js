@@ -71,7 +71,7 @@ export default class CanvasArea extends React.Component {
  
     return (
       <div className="canvasarea">  
-        <div><pre>{JSON.stringify(this.state.formObj, null, 2) }</pre> </div>
+        <div className="hideMe"><pre>{JSON.stringify(this.state.formObj, null, 2) }</pre> </div>
 				<div>{formItemArry}</div>
         <div className={"buttonWrapper "  + (this.props.canvasFormFields.length ? 'showme' : '')}>
           <button onClick={this.createMyForm.bind(this)}>Create My Form</button>

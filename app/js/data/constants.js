@@ -120,7 +120,7 @@ const dataConstants = {
   	, checkboxgroup: ['label', 'name', 'value', 'list']
     , loadrequest: ['action', 'callBack', 'errorCallBack']
   	, pageheader: ['pageTitle']
-  	, radiogroup: ['label', 'name', 'value', 'required']
+  	, radiogroup: ['label', 'name', 'value', 'list', 'required']
   	, dropdown: ['label', 'name', 'value', 'callBack', 'list', 'listType', 'view', 'required', 'disabled']
   	, inputtext: ['label', 'name', 'value', 'allowType', 'maxlength', 'required', 'disabled']
   	, textarea: ['label', 'name', 'value', 'required']
