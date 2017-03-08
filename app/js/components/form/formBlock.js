@@ -1,12 +1,12 @@
 import React from "react"; 
- 
+import OptionGroupSet from './OptionGroupSet'; 
+
 export default class FormBlock extends React.Component {
   constructor() {
     super(); 
 
     this.state = { 
       keyValue: 'default-' + new Date().getTime()
-
     };
   }
 
@@ -15,40 +15,45 @@ export default class FormBlock extends React.Component {
     this.props.collectFormRowValue(fieldValue, this.props.keyName); 
 
     this.setState({keyValue:fieldValue});
-    // console.log('formblock handleInputFieldChanges', fieldValue, this.props);
+    console.log('formblock | handleInputFieldChanges', fieldValue, this.props);
   }  
-
-
+  handleAddOptions() {
+    const fieldValue = this.state.keyValue;
+    const optionCount = Object.keys(fieldValue).length;
+    const newOptionNum = optionCount+1;
+    const newObj = {id:'option' + newOptionNum, label:'Option ' + newOptionNum};
+    fieldValue.push(newObj);
+    this.setState({keyValue:fieldValue});
+    this.props.collectFormRowValue(fieldValue, this.props.keyName); 
+    console.log('formblock | handleAddOptions', this.props, this.state);
+  }
+  handleupdateField(val, type, index) {
+    const fieldValue = this.state.keyValue;
+    fieldValue[index][type] = val;
+    console.log(val, index, type, fieldValue);
+    this.setState({keyValue:fieldValue});
+    this.props.collectFormRowValue(fieldValue, this.props.keyName); 
+  }
   componentWillMount() {
     // if(this.props.keyName == 'name') {
     //   this.setState({keyValue: 'test'});
-    //   console.log('componentWillMount formblock here', this.state.keyValue, this.props);  
+    //   
     // }
-
+    console.log('formblock | componentWillMount | ', this.props.keyName, this.state.keyValue, this.props);  
     let fieldValue = (this.props.keyName == 'name') ? this.state.keyValue : (this.props.keyName == 'required' || this.props.keyName == 'disabled') ? false : '';
     if(this.props.keyName == 'listType')
       fieldValue = 'single';
     if(this.props.keyName == 'view')
       fieldValue = 'inline';
+    if(this.props.keyName == 'list')
+      fieldValue = this.props.keyData.options;
 
     this.setState({keyValue:fieldValue});
     this.props.collectFormRowValue(fieldValue, this.props.keyName); 
-  }  
-
-  updateOptions(e) {
-     let optionCount = Object.keys(this.props.keyData.options).length;
-     let newOptionNum = optionCount+1;
-     let newOptionName = 'Option' + newOptionNum;
-     this.props.keyData.options[newOptionName] = 'Option' + ' ' + newOptionNum;
-     this.setState(this.state);   
-  }
-
-  updateText(e){
-
-  }
+  }   
 
   render() { 
-    // console.log('FormBlock props = ', this.props); 
+    console.log('formBlock | render | props = ', this.props); 
     let labelVal = this.props.keyData.name; 
     let inputWrap;
 
@@ -85,9 +90,12 @@ export default class FormBlock extends React.Component {
           {optionBlock}
         </select> 
       ); 
-    } else if (this.props.keyData.type == 'formlist') { 
-      const formBlock = Object.keys(this.props.keyData.options).map((key, i) => <div key={i}><input type="radio" value={key} /> <input type="text" onChange={this.updateText.bind(this)} value={this.props.keyData.options[key]} /></div> ); 
-      inputWrap = ( <div><div className="radio-group" onChange={this.handleInputFieldChanges.bind(this)}> {formBlock} </div> <button onClick={this.updateOptions.bind(this)}>Add options </button> </div> );
+    } else if (this.props.keyData.type == 'formlist') {  
+      inputWrap = ( 
+        <div>   
+          <OptionGroupSet updateField={this.handleupdateField.bind(this)} addOptions={this.handleAddOptions.bind(this)} options={this.props.keyData.options} />
+        </div> 
+      );
     } else if (this.props.keyData.type == 'radio') { 
       const radioBlock = Object.keys(this.props.keyData.options).map((key, i) => <div key={i}><input checked={this.state.keyValue === key} onChange={this.handleInputFieldChanges.bind(this)} type="radio" value={key} /> {this.props.keyData.options[key]}</div> ); 
       inputWrap = ( 

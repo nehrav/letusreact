@@ -78,13 +78,13 @@ const dataConstants = {
   	, name: {
   		name: 'Name :'
   	}  
-    , options: {
+    , list: {
       name: 'Options :'
       , type: 'formlist'
-      , options: {
-        option1:'Option 1'
-        , option2:'Option 2'
-      }
+      , options: [
+        { id:'option1', label:'Option 1'}
+        , {id:'option2', label:'Option 2'}
+      ]
     }
     , pageTitle: {
       name: 'Page Title :'
@@ -117,11 +117,11 @@ const dataConstants = {
   , formType: {
   	button: ['label', 'name', 'type', 'callBack', 'view', 'disabled']
   	, checkbox: ['label', 'name', 'value', 'required', 'disabled']
-  	, checkboxgroup: ['label', 'name', 'value']
+  	, checkboxgroup: ['label', 'name', 'value', 'list']
     , loadrequest: ['action', 'callBack', 'errorCallBack']
   	, pageheader: ['pageTitle']
   	, radiogroup: ['label', 'name', 'value', 'required']
-  	, dropdown: ['label', 'name', 'value', 'callBack', 'options', 'listType', 'view', 'required', 'disabled']
+  	, dropdown: ['label', 'name', 'value', 'callBack', 'list', 'listType', 'view', 'required', 'disabled']
   	, inputtext: ['label', 'name', 'value', 'allowType', 'maxlength', 'required', 'disabled']
   	, textarea: ['label', 'name', 'value', 'required']
   }

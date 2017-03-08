@@ -17,10 +17,9 @@ export default class App extends React.Component {
 
   updateCanvasItems(arry) {
     this.setState({canvasItems:arry});
-  }
+  } 
 
-  render() {   
-
+  render() { 
     return (
       <div> 
         <Header /> 

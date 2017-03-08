@@ -50,7 +50,7 @@ header #logo {
 .wrapper .buttonWrapper.showme {	
 	display:block;
 	}
-.wrapper .buttonWrapper button {
+.wrapper button {
 	background:#3498db; 	
 	padding:10px 20px;
 	cursor:pointer;
@@ -107,18 +107,27 @@ header #logo {
 	float:right;
 	width:77%;
 	}			
-.wrapper .canvasarea .block .form-group .input-wrap select {
-	width:99.5%;
+.wrapper .canvasarea .block .form-group select {
+	width:99.5% !important;
 	}
+.wrapper .canvasarea .block .form-group .input-wrap .option-group {
+	margin-bottom:10px; overflow:hidden;
+	}
+.wrapper .canvasarea .block .form-group .input-wrap button {
+	padding:4px 10px;
+	}	
 .wrapper .canvasarea .block .form-group .input-wrap .radio-group div {
 	float:left; width:30%;
 	}	
+.wrapper .canvasarea .block .form-group .input-wrap .option-group div {
+	float:left; width:35%;
+	}		
+.wrapper .canvasarea .block .form-group .input-wrap .option-group div input[type="text"] {
+	width:80%;
+	}	
 .wrapper .canvasarea .block .form-group .input-wrap .radio-group div input[type="text"] {
 	width:60%;
-	}
-.wrapper .canvasarea .block .form-group .input-wrap select {
-	width:100%;
-	}
+	} 
 .wrapper .canvasarea .block .form-group .input-wrap input[type="text"]
 , .wrapper .canvasarea .block .form-group .input-wrap select {
 	padding:6px 12px;
